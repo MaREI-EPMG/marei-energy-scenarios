@@ -1,6 +1,6 @@
 import React from "react";
-import StudyPortal from "energy-charts";
-import useFetch from "energy-charts/dist/hooks/useFetch";
+import EnergyCharts from "../energy-charts";
+import useFetch from "../energy-charts/hooks/useFetch";
 import {
   chartsInfo as commonChartsInfo,
   chartsTitles as commonChartsTitles,
@@ -83,6 +83,7 @@ function Portal(props) {
         alert: alert,
         chartsInfo: chartsInfo,
         chartsPath: chartsPath,
+        dataDownload: true,
         titles: {
           charts: chartsTitles,
           series: seriesTitles,
@@ -105,7 +106,7 @@ function Portal(props) {
       }
     : {};
 
-  return !isDataLoading && <StudyPortal config={config} />;
+  return !isDataLoading && <EnergyCharts config={config} />;
 }
 
 export default Portal;
