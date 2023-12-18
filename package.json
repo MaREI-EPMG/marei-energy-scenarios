@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
-    "energy-charts": "MaREI-EPMG/energy-charts#module",
+    "energy-charts": "*",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
