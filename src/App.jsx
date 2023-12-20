@@ -62,7 +62,7 @@ function App() {
                   <img src={logo} className="App-logo" alt="logo" />
                   <p>Energy Policy and Modelling Group (EPMG)</p>
                 </a>
-                <Accordion defaultActiveKey="0" flush className="w-100">
+                <Accordion defaultActiveKey="1" flush className="w-100">
                   {sections.map((section, idx) => (
                     <Accordion.Item
                       key={idx}
