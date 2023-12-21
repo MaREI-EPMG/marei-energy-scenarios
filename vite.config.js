@@ -6,7 +6,7 @@ import eslint from "vite-plugin-eslint";
 import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
-    base: '',
+    base: '/',
     build: {
         minify: false,
         minifyIdentifiers: false,
