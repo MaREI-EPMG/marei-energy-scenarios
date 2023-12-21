@@ -1,6 +1,6 @@
 import React from "react";
-import StudyPortal from "energy-charts";
-import useFetch from "energy-charts/dist/hooks/useFetch";
+import EnergyCharts from "../energy-charts";
+import useFetch from "../energy-charts/hooks/useFetch";
 import {
   chartsInfo as commonChartsInfo,
   chartsTitles as commonChartsTitles,
@@ -81,31 +81,34 @@ function Portal(props) {
   const config = !isDataLoading
     ? {
         alert: alert,
+        barWidth: 12,
+        basePath: `${source}/${study}`,
+        chartPadding: { left: 40, right: 20, top: 50, bottom: 35 },
         chartsInfo: chartsInfo,
         chartsPath: chartsPath,
+        contentNavs: contentNavs,
+        dataDownload: true,
+        defaultScenarioGroup: scenarios[0].name,
+        fixedDomain: false,
+        headerNavBrand: headerNavBrand,
+        headerNavLinks: headerNavLinks,
+        landingPage: "about",
+        maxChartWidth: 600,
+        routes: routes,
+        scenarios: scenarios,
+        showSearchParams: true,
+        stackbarOffset: 5,
         titles: {
           charts: chartsTitles,
           series: seriesTitles,
           scenarios: scenarioTitles
         },
-        scenarios: scenarios,
-        defaultScenarioGroup: scenarios[0].name,
-        landingPage: "about",
-        routes: routes,
-        contentNavs: contentNavs,
-        headerNavLinks: headerNavLinks,
-        headerNavBrand: headerNavBrand,
-        basePath: `${source}/${study}`,
-        xGridValues: periods,
-        maxChartWidth: 600,
-        xDomainPadding: 11,
-        stackbarOffset: 7,
-        barWidth: 12,
-        chartPadding: { left: 40, right: 20, top: 50, bottom: 35 }
+        xDomainPadding: 10,
+        xGridValues: periods
       }
     : {};
 
-  return !isDataLoading && <StudyPortal config={config} />;
+  return !isDataLoading && <EnergyCharts config={config} />;
 }
 
 export default Portal;

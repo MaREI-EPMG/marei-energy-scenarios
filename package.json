@@ -1,10 +1,11 @@
 {
   "name": "epmg-energy-scenarios",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
+  "type": "module",
   "author": {
-    "name": "Olexandr Balyk",
-    "email": "olexandr.balyk@ucc.ie"
+    "name": "Andrew ZP Smith",
+    "email": "asmith@ucc.ie"
   },
   "license": "Apache-2.0",
   "bugs": {
@@ -15,20 +16,25 @@
     "url": "git+https://github.com/MaREI-EPMG/epmg-energy-scenarios.git"
   },
   "dependencies": {
-    "bootstrap": "^5.2.3",
-    "energy-charts": "^0.8.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "bootstrap": "^5.3.2",
+    "export-to-csv": "^1.2.1",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.7.0",
+    "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.7.1",
-    "react-router-dom": "^6.6.1",
-    "web-vitals": "^3.1.0"
+    "react-icons": "^4.12.0",
+    "react-markdown": "^8.0.7",
+    "react-router-dom": "~6.9.0",
+    "rehype-raw": "^6.1.1",
+    "remark-gfm": "^3.0.1",
+    "victory": "^36.6.11",
+    "vite": "^5.0.10",
+    "web-vitals": "^3.5.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "eslintConfig": {
     "extends": [
@@ -49,14 +55,21 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^14.4.3",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
+    "@vitejs/plugin-react": "*",
+    "eslint": "^8.45.0",
+    "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "git-format-staged": "^3.0.0",
     "husky": "^8.0.3",
-    "prettier": "^2.8.2",
-    "react-scripts": "5.0.1"
+    "prettier": "^3.1.1",
+    "vite": "^4.4.4",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-svgr": "^3.2.0",
+    "vitest": "^0.33.0"
   },
   "prettier": {
     "trailingComma": "none",

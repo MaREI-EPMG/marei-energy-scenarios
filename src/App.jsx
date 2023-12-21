@@ -1,9 +1,9 @@
 import "./App.css";
-import "energy-charts/dist/index.css";
+import "./energy-charts/index.css";
 import React, { useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Accordion, Container } from "react-bootstrap";
-import useFetch from "energy-charts/dist/hooks/useFetch";
+import useFetch from "./energy-charts/hooks/useFetch";
 import { Portal, RepoCardsSection } from "./components";
 import logo from "./logo.svg";
 
@@ -62,7 +62,7 @@ function App() {
                   <img src={logo} className="App-logo" alt="logo" />
                   <p>Energy Policy and Modelling Group (EPMG)</p>
                 </a>
-                <Accordion defaultActiveKey={["0"]} flush className="w-100">
+                <Accordion defaultActiveKey="1" flush className="w-100">
                   {sections.map((section, idx) => (
                     <Accordion.Item
                       key={idx}
