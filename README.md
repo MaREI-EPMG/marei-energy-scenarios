@@ -2,7 +2,7 @@
 
 [![license](https://img.shields.io/github/license/MaREI-EPMG/epmg-energy-scenarios?color=purple)](LICENSE)
 
-This web app is developed to provide a convenient way of exploring EPMG energy scenarios using modern web technologies.
+This web app is developed to provide a convenient way of exploring EPMG energy scenarios using modern web technologies. [Olexandr Balyk](https://github.com/olejandro) is the creator of the app. [Andrew Z. P. Smith](https://github.com/energynumbers) is the current maintainer.
 
 This particular app, on MaREI-EPMG/epmg-energy-scenarios , is directly imported into the netlify app at https://epmg.netlify.app/ to make the front page there.
 
