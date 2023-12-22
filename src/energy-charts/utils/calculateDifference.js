@@ -1,3 +1,4 @@
+// contains EPMG customisation
 function calculateDifference(data) {
   const diffValues = (array1, array2) => {
     let series = [];

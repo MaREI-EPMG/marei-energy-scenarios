@@ -1,3 +1,4 @@
+// contains EPMG customisation
 import "./App.css";
 import "./energy-charts/index.css";
 import React, { useRef } from "react";

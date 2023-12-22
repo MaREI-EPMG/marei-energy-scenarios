@@ -1,3 +1,4 @@
+// contains EPMG customisation
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { Chart, ChartLegend } from "../components";
