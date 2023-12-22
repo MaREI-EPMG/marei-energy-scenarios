@@ -1,3 +1,4 @@
+// contains EPMG customisation
 import "./App.css";
 import "./energy-charts/index.css";
 import React, { useRef } from "react";
@@ -9,9 +10,45 @@ import logo from "./logo.svg";
 
 function App() {
   const cache = useRef({});
-  const topics = ["tim-scenario"];
   const org = "MaREI-EPMG";
   const ghPages = `https://${org}.github.io`;
+  const primaryTopic = "tim-scenario";
+
+  const sections = [
+    {
+      repos: [],
+      style: "success",
+      title: "Recent studies",
+      topic: "recent"
+    },
+    {
+      repos: [],
+      style: "",
+      title: "Work in progress",
+      topic: "WIP"
+    },
+    {
+      repos: [],
+      style: "primary",
+      title: "Archive",
+      topic: "archive"
+    }
+  ];
+
+  const defaultSection = 1;
+
+  function categoriseRepos(repository) {
+    let todo = true;
+    for (let section of sections) {
+      if (repository.topics.includes(section.topic)) {
+        section.repos.push(repository);
+        todo = false;
+      }
+    }
+    if (todo) {
+      sections[defaultSection].repos.push(repository);
+    }
+  }
 
   const [isReposLoading, repositories] = useFetch(
     `https://api.github.com/orgs/${org}/repos?per_page=100`,
@@ -20,30 +57,13 @@ function App() {
 
   const topicRepos = isReposLoading
     ? null
-    : repositories.filter((repository) => {
-        return (
-          topics.some((topic) => repository.topics.includes(topic)) &&
-          repository.has_pages
-        );
-      });
+    : repositories.filter((repository) =>
+      repository.has_pages && repository.topics.includes(primaryTopic)
+    );
 
-  const sections = [
-    {
-      title: "Recent studies",
-      repos: null,
-      style: "success"
-    },
-    {
-      title: "Work in progress",
-      repos: topicRepos,
-      style: ""
-    },
-    {
-      title: "Archive",
-      repos: null,
-      style: "primary"
-    }
-  ];
+  if (topicRepos) {
+    topicRepos.forEach(categoriseRepos);
+  }
 
   return (
     <Routes>
@@ -62,11 +82,10 @@ function App() {
                   <img src={logo} className="App-logo" alt="logo" />
                   <p>Energy Policy and Modelling Group (EPMG)</p>
                 </a>
-                <Accordion defaultActiveKey="1" flush className="w-100">
+                <Accordion flush className="w-100">
                   {sections.map((section, idx) => (
                     <Accordion.Item
                       key={idx}
-                      eventKey={`${idx}`}
                       style={{ backgroundColor: "transparent" }}
                     >
                       <Accordion.Header>{section.title}</Accordion.Header>

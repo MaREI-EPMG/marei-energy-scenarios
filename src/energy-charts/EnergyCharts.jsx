@@ -1,3 +1,4 @@
+// contains EPMG customisation
 import React, { useState, useRef, useEffect, Suspense } from "react";
 import { createSearchParams, Routes, Route, Navigate, useSearchParams } from "react-router-dom";
 import useMediaQuery from "./hooks/useMediaQuery";
