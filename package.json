@@ -3,16 +3,15 @@
   "version": "0.2.1",
   "private": true,
   "type": "module",
+  "author": {
+      "name":"Olexandr Balyk",
+      "email": "olex@energymodelling.club"
+    },
   "contributors": [
     {
       "name": "Andrew ZP Smith",
       "email": "asmith@ucc.ie",
       "role": "current maintainer"
-    },
-    {
-      "name":"Olex Balyk",
-      "url": "https://www.facilitate.energy/",
-      "role": "original author"
     }
   ],
   "engines": {
