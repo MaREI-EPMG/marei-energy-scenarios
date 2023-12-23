@@ -16,18 +16,33 @@ function App() {
 
   const sections = [
     {
+      alert: {
+        heading: "Recent Studies",
+        text: "Results are expected to be stable, but may be updated if circumstances require it.",
+        variant: "info" //  'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light' | string
+      },
       repos: [],
       style: "success",
       title: "Recent studies",
       topic: "recent"
     },
     {
+      alert: {
+        heading: "Work in progress",
+        text: "Please don't cite or use these results.",
+        variant: "danger"
+      },
       repos: [],
       style: "",
       title: "Work in progress",
       topic: "WIP"
     },
     {
+      alert: {
+        heading: "An archived project",
+        text: "This project is complete, and the results have been archived.",
+        variant: "info"
+      },
       repos: [],
       style: "primary",
       title: "Archive",
@@ -42,11 +57,13 @@ function App() {
     for (let section of sections) {
       if (repository.topics.includes(section.topic)) {
         section.repos.push(repository);
+        repository.alert = section.alert;
         todo = false;
       }
     }
     if (todo) {
       sections[defaultSection].repos.push(repository);
+      repository.alert = sections[defaultSection].alert;
     }
   }
 
@@ -75,12 +92,12 @@ function App() {
               <Container fluid="xxl">
                 <a
                   className="App-link"
-                  href="https://www.marei.ie/energy-policy-modelling/"
+                  href="https://www.ucc.ie/energypolicy"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <img src={logo} className="App-logo" alt="logo" />
-                  <p>Energy Policy and Modelling Group (EPMG)</p>
+                  <p>Energy Policy &amp; Modelling Group of University College Cork<br />Results from the TIMES Ireland Model</p>
                 </a>
                 <Accordion flush className="w-100">
                   {sections.map((section, idx) => (
@@ -113,6 +130,7 @@ function App() {
                 source={`${ghPages}`}
                 study={`${topicRepo.name}`}
                 cache={cache}
+                alert={topicRepo.alert}
               />
             }
           />
