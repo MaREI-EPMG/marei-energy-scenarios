@@ -1,10 +1,10 @@
 // contains EPMG customisation
 import "./App.css";
-import "./energy-charts/index.css";
+import "energy-charts/src/index.css";
 import React, { useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Accordion, Container } from "react-bootstrap";
-import useFetch from "./energy-charts/hooks/useFetch";
+import useFetch from "energy-charts/src/hooks/useFetch";
 import { Portal, RepoCardsSection } from "./components";
 import logo from "./logo.svg";
 
@@ -79,8 +79,9 @@ function App() {
     );
 
   if (topicRepos) {
-    topicRepos.forEach(categoriseRepos);
+    topicRepos.forEach(categoriseRepos); 
   }
+  const activeSections = ["0", "1", "2"];
 
   return (
     <Routes>
@@ -103,10 +104,11 @@ function App() {
                     <br />Results from the TIMES Ireland Model
                   </p>
                 </a>
-                <Accordion flush className="w-100">
+                <Accordion alwaysOpen flush defaultActiveKey={activeSections} className="w-100">
                   {sections.map((section, idx) => (
                     <Accordion.Item
                       key={idx}
+                      eventKey={`${idx}`}
                       style={{ backgroundColor: "transparent" }}
                     >
                       <Accordion.Header>{section.title}</Accordion.Header>

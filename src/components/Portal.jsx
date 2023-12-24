@@ -1,7 +1,7 @@
 // contains EPMG customisation
 import React from "react";
-import EnergyCharts from "../energy-charts";
-import useFetch from "../energy-charts/hooks/useFetch";
+import EnergyCharts from "energy-charts";
+import useFetch from "energy-charts/src/hooks/useFetch";
 import {
   chartsInfo as commonChartsInfo,
   chartsTitles as commonChartsTitles,

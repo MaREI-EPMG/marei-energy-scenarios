@@ -11,7 +11,7 @@ export default defineConfig({
     build: {
         minify: false,
         minifyIdentifiers: false,
-        outDir: "dist"
+        outDir: "build"
     },
     plugins: [
         eslint(),
