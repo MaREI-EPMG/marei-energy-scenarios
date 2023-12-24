@@ -96,8 +96,12 @@ function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={logo} className="App-logo" alt="logo" />
-                  <p>Energy Policy &amp; Modelling Group of University College Cork<br />Results from the TIMES Ireland Model</p>
+                  <img src={logo} className="App-logo" alt="logo" /> 
+                  <p>
+                    Energy Policy &amp; Modelling Group
+                    of University College Cork
+                    <br />Results from the TIMES Ireland Model
+                  </p>
                 </a>
                 <Accordion flush className="w-100">
                   {sections.map((section, idx) => (
