@@ -3,13 +3,21 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 12vmin;
   pointer-events: none;
+  float: right;
+  margin-left: -12vmin;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@media (max-width: 767px) {
+  .App-logo {
+    display: none;
   }
 }
 
@@ -27,6 +35,8 @@
 .App-link {
   color: white;
   text-decoration: none;
+  padding-bottom: 0.2em;
+  display: block;
 }
 
 @keyframes App-logo-spin {
@@ -36,4 +46,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.navbar-nav .nav-link.active {
+  text-decoration: double underline;
 }

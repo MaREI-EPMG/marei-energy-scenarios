@@ -1,6 +1,9 @@
 {
+  "licence-compliance": [
+    "contains EPMG customisation"
+  ],
   "name": "epmg-energy-scenarios",
-  "version": "0.2.1",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "contributors": [
@@ -10,7 +13,7 @@
       "role": "current maintainer"
     },
     {
-      "name":"Olex Balyk",
+      "name": "Olex Balyk",
       "url": "https://www.facilitate.energy/",
       "role": "original author"
     }

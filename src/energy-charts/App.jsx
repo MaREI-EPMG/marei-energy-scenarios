@@ -1,12 +1,17 @@
 // contains EPMG customisation
 import React, { useState, useRef, useEffect, Suspense } from "react";
-import { createSearchParams, Routes, Route, Navigate, useSearchParams } from "react-router-dom";
+import {
+  createSearchParams,
+  Routes,
+  Route,
+  Navigate,
+  useSearchParams
+} from "react-router-dom";
 import useMediaQuery from "./hooks/useMediaQuery";
 import { Layout } from "./containers";
 import { PageLoading, ChartsPage, Charts, Page } from "./components";
 
-function EnergyCharts({ config }) {
-  
+function App({ config }) {
   const decodeSearchParams = (searchParams) => {
     return [...searchParams.entries()].reduce((acc, [key, val]) => {
       try {
@@ -22,7 +27,7 @@ function EnergyCharts({ config }) {
       }
     }, {});
   };
-  
+
   const [encodedSearchParams, setSearchParams] = useSearchParams();
   const searchParams = decodeSearchParams(encodedSearchParams);
   const dataDownload = config.dataDownload;
@@ -38,21 +43,24 @@ function EnergyCharts({ config }) {
       : scenarioGroups[0]
     : scenarioGroups[0];
 
-  const loadMainScenario = "scen1" in searchParams
-    ? scenarioGroups.includes(searchParams.scen1)
-      ? searchParams.scen1
-      : defaultScenarioGroup
-    : defaultScenarioGroup;
+  const loadMainScenario =
+    "scen1" in searchParams
+      ? scenarioGroups.includes(searchParams.scen1)
+        ? searchParams.scen1
+        : defaultScenarioGroup
+      : defaultScenarioGroup;
 
-  const loadCompareScenario = "scen2" in searchParams
-    ? scenarioGroups.includes(searchParams.scen2)
-      ? searchParams.scen2
-      : null
-    : null;
+  const loadCompareScenario =
+    "scen2" in searchParams
+      ? scenarioGroups.includes(searchParams.scen2)
+        ? searchParams.scen2
+        : null
+      : null;
 
-  const loadShowDifference = "diff" in searchParams
-    ? (!!searchParams.diff === true && loadCompareScenario)
-    : false;
+  const loadShowDifference =
+    "diff" in searchParams
+      ? !!searchParams.diff === true && loadCompareScenario
+      : false;
 
   const [mainScenario, setMainScenario] = useState(loadMainScenario);
   const [compareScenario, setCompareScenario] = useState(loadCompareScenario);
@@ -77,11 +85,13 @@ function EnergyCharts({ config }) {
     }
 
     showSearchParams
-      ? setSearchParams(createSearchParams({
-          "scen1": mainScenario,
-          "scen2": compareScenario,
-          "diff": showDifference
-        }))
+      ? setSearchParams(
+          createSearchParams({
+            "scen1": mainScenario,
+            "scen2": compareScenario,
+            "diff": showDifference
+          })
+        )
       : setSearchParams();
   }, [
     mainScenario,
@@ -208,4 +218,4 @@ function EnergyCharts({ config }) {
   );
 }
 
-export default EnergyCharts;
+export default App;
