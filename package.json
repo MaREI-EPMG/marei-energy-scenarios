@@ -30,7 +30,6 @@
     "url": "git+https://github.com/MaREI-EPMG/epmg-energy-scenarios.git"
   },
   "dependencies": {
-    "@types/energy-charts": "MaREI-EPMG/energy-charts#module",
     "@vitejs/plugin-react": "^4.2.1",
     "bootstrap": "^5.3.2",
     "export-to-csv": "^1.2.1",

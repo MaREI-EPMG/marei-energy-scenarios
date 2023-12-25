@@ -1,0 +1,155 @@
+/* contains EPMG customisation */
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html ::-webkit-scrollbar {
+  display: none;
+}
+
+aside {
+  min-width: 250px;
+}
+
+ul.main-scenario-list li,
+ul.offcanvas-scenario-list li {
+  border: unset;
+}
+
+ul.main-scenario-list li:hover,
+ul.offcanvas-scenario-list li:hover {
+  cursor: pointer;
+  background-color: #b3b3b3;
+}
+
+ul.main-scenario-list li.active,
+ul.offcanvas-scenario-list li.active {
+  background-color: maroon;
+}
+
+#compare-scenario-list:hover {
+  cursor: pointer;
+  box-shadow: none;
+}
+
+#compare-scenario-list:focus:not(:focus-visible) {
+  box-shadow: none;
+  border-color: #ced4da;
+}
+
+.form-check.form-switch * {
+  cursor: pointer;
+}
+
+.form-check-input:focus:not(:focus-visible) {
+  box-shadow: none;
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.form-check-input:not(:checked):focus:not(:focus-visible) {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+}
+
+.form-check-input:checked {
+  background-color: maroon;
+  border-color: maroon;
+}
+
+button.navbar-toggler {
+  border: 0px;
+  border-color: unset;
+  padding-right: 0;
+}
+
+button > div.hamburger {
+  width: 25px;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.9);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+button:not(.collapsed) > .bar1 {
+  -webkit-transform: translate(0px, 8px) rotate(45deg);
+  transform: translate(0px, 8px) rotate(45deg);
+}
+
+/* Fade out second bar */
+button:not(.collapsed) > .bar2 {
+  opacity: 0;
+  -webkit-transform: translate(-200px, 0px);
+  transform: translate(-200px, 0px);
+}
+
+/* Rotate third bar */
+button:not(.collapsed) > .bar3 {
+  -webkit-transform: translate(0px, -8px) rotate(-45deg);
+  transform: translate(0px, -8px) rotate(-45deg);
+}
+
+button:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+@media only screen and (max-width: 768px) {
+  nav.nav-tabs,
+  nav.nav-underscore {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+}
+
+.nav-underscore .nav-link,
+.nav-tabs .nav-link {
+  color: #495057;
+}
+
+.nav-tabs .nav-link.active {
+  color: #23272b;
+}
+
+.nav-underscore .nav-link.active {
+  color: #23272b;
+  border-bottom: 2px solid;
+}
+
+.nav-underscore .nav-link {
+  padding: 0.5rem 0.2rem;
+  margin: 0 0.8rem;
+}
+
+.nav-underscore .nav-link:not(.active):hover {
+  color: #697480;
+  border-bottom: 2px solid;
+}
+
+.nav-tabs .nav-link {
+  border-radius: 0rem;
+}
+
+.nav-tabs .active:first-child {
+  border-left: 1px solid transparent;
+}
+
+.offcanvas-menu-button {
+  border-color: maroon;
+  background-color: maroon;
+}
+
+.offcanvas-menu-button:focus {
+  border-color: maroon;
+  background-color: maroon;
+}
+
+.offcanvas-menu-button:hover {
+  border-color: #730000;
+  background-color: #730000;
+}
+
+a.download-table {
+  float: right;
+  cursor: pointer;
+}

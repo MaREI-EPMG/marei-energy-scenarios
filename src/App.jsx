@@ -1,10 +1,10 @@
 // contains EPMG customisation
 import "./App.css";
-import "energy-charts/src/index.css";
+import "./energy-charts/index.css";
 import React, { useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Accordion, Container } from "react-bootstrap";
-import useFetch from "energy-charts/src/hooks/useFetch";
+import useFetch from "./energy-charts/hooks/useFetch";
 import { Portal, RepoCardsSection } from "./components";
 import logo from "./logo.svg";
 
