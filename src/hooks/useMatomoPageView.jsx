@@ -17,10 +17,9 @@ export function useMatomoPageView() {
   };
 
   const recordPageView = () => {
-    console.log("tracking");
     window._paq.push(["setCustomUrl", location.pathname]);
     window._paq.push(["setDocumentTitle", document.title]);
-    /*
+    /* TODO get study name and scenarios from url and put them in custom variables
     window._paq.push([
         "setCustomVariable",
         1,
