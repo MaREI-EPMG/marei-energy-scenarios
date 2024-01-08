@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import { Accordion, Container } from "react-bootstrap";
 import useFetch from "./energy-charts/hooks/useFetch";
 import { Portal, RepoCardsSection } from "./components";
+import { useMatomoPageView } from "./hooks/useMatomoPageView";
 import logo from "./logo.svg";
 
 function App() {
@@ -82,6 +83,8 @@ function App() {
     topicRepos.forEach(categoriseRepos); 
   }
   const activeSections = ["0", "1", "2"];
+
+  useMatomoPageView();
 
   return (
     <Routes>
