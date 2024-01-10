@@ -56,16 +56,16 @@
     <!-- view counter -->
     <script>
       var _paq = window._paq = window._paq || [];
+      _paq.push(['trackPageView']);
+        // track outbound links
+        _paq.push(['enableLinkTracking']);
+        // track how long users spend on site, 15s timer
+        _paq.push(['enableHeartBeatTimer', 15]);
       (function() {
         var u="https://energynumbers.info/matomo/";
         _paq.push(['setTrackerUrl', u+'matomo.php']);
         _paq.push(['setSiteId', '34']);
         _paq.push(["setRequestMethod", "POST"]);
-        _paq.push(['trackPageView']);
-        // track outbound links
-        _paq.push(['enableLinkTracking']);
-        // track how long users spend on site
-        _paq.push(['enableHeartBeatTimer', 30]);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
       })();
