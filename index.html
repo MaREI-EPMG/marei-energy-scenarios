@@ -19,15 +19,6 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="/manifest.json" />
-    <!--
-      Notice the use of  in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
     <title>EPMG Energy Scenarios</title>
 
     <!-- Open Graph / Facebook -->
@@ -62,13 +53,25 @@
       content="%PUBLIC_URL%/image.png"
     />
 
-    <!-- Analytics -->
-    <script
-      async
-      defer
-      data-domain="epmg.netlify.app"
-      src="https://plausible.io/js/plausible.js"
-    ></script>
+    <!-- view counter -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      _paq.push(['trackPageView']);
+      _paq.push(['disableCookies']);
+      // track outbound links
+      _paq.push(['enableLinkTracking']);
+      // track how long users spend on site, 15s timer
+      _paq.push(['enableHeartBeatTimer', 15]);
+      _paq.push(["setRequestMethod", "POST"]);
+      (function() {
+        var u="https://energynumbers.info/matomo/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '34']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+
   </head>
 
   <body>

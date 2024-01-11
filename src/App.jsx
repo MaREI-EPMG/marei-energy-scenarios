@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import { Accordion, Container } from "react-bootstrap";
 import useFetch from "./energy-charts/hooks/useFetch";
 import { Portal, RepoCardsSection } from "./components";
+import { useMatomoPageView } from "./hooks/useMatomoPageView";
 import logo from "./logo.svg";
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
 
   const defaultSection = 1;
 
+  // assign each repository to its correct category (recent/WIP/archive)
   function categoriseRepos(repository) {
     let todo = true;
     for (let section of sections) {
@@ -72,6 +74,7 @@ function App() {
     cache
   );
 
+  // having got all of our org's repositories, filter only those with our topic of interest
   const topicRepos = isReposLoading
     ? null
     : repositories.filter((repository) =>
@@ -82,6 +85,9 @@ function App() {
     topicRepos.forEach(categoriseRepos); 
   }
   const activeSections = ["0", "1", "2"];
+
+  // track all updates to the page
+  useMatomoPageView();
 
   return (
     <Routes>
