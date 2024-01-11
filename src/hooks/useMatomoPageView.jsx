@@ -45,7 +45,7 @@ export function useMatomoPageView() {
         1,
         "project",
         project,
-        "visit"
+        "page"
       ]);
       if (page === "results" && searchParams.has("scen1")) {
         // when we're viewing charts, track the scenarios & charts being viewed 
@@ -54,7 +54,7 @@ export function useMatomoPageView() {
             2,
             "scenario1",
             project + ">" + searchParams.get("scen1"),
-            "visit"
+            "page"
         ]);
         if (searchParams.has("scen2")) {
           window._paq.push([
@@ -62,7 +62,7 @@ export function useMatomoPageView() {
               3,
               "scenario2",
               project + ">" + searchParams.get("scen2"),
-              "visit"
+              "page"
           ]);
         }
         const chartPage = (pathbits.length < 4) 
@@ -76,7 +76,7 @@ export function useMatomoPageView() {
               4,
               "charts",
               chartPage,
-              "visit"
+              "page"
           ]);
         }
 
