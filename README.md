@@ -8,8 +8,6 @@ TIM results to be displayed in the app should be processed with [MaREI-EPMG/tim-
 
 The json files can then be put into a fork of [MaREI-EPMG/epmg-scenarios-template](https://github.com/MaREI-EPMG/epmg-scenarios-template) . Follow the instructions **there** to ensure that they are displayed in the netlify app.
 
-[Olexandr Balyk](https://github.com/olejandro) is the creator of the app. [Andrew ZP Smith](https://github.com/energynumbers) is the current maintainer.
-
 ## Licence
 
 [![license](https://img.shields.io/github/license/MaREI-EPMG/epmg-energy-scenarios?color=purple)](LICENSE)
