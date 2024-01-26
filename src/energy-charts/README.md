@@ -1,9 +1,7 @@
 # Energy Charts
 
 This is the bespoke UCC-EPMG version of Energy Charts,
-customised from the
-[orginal software](https://github.com/facilitate-energy/energy-charts)
-developed by [Facilitate Energy Ltd.](https://facilitate.energy/)
+customised from the orginal software written by Olex Balyk of [Facilitate Energy Ltd.](https://facilitate.energy/)
 
 ## Purpose
 
