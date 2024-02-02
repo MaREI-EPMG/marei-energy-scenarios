@@ -1,7 +1,6 @@
 # Energy Charts
 
-This is the bespoke UCC-EPMG version of Energy Charts,
-customised from the orginal software written by Olex Balyk of [Facilitate Energy Ltd.](https://facilitate.energy/)
+This is the bespoke UCC-EPMG version of Energy Charts, customised from the [orginal software](https://github.com/facilitate-energy/energy-charts) developed by [Facilitate Energy Ltd.](https://facilitate.energy/)
 
 ## Purpose
 
@@ -38,7 +37,6 @@ Requires [Node.js](https://nodejs.org).
 ## To deploy (and you won't, in general, want to do this either)
 
 Follow this [guide](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/) to deploy on Netlify.
-
 
 ## License
 
