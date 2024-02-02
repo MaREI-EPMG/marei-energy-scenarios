@@ -45,7 +45,7 @@ function Charts(props) {
           width: "100%"
         }}
       >
-        { dataDownload && (
+        {dataDownload && (
           <>
             Download data for any chart by clicking on the{" "}
             <Card.Link>
@@ -53,7 +53,7 @@ function Charts(props) {
             </Card.Link>{" "}
             in its top-right corner.
           </>
-        ) }
+        )}
       </p>
       {charts.map(
         (chart, idx) =>

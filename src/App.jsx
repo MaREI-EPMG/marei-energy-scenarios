@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import { Accordion, Container } from "react-bootstrap";
 import useFetch from "./energy-charts/hooks/useFetch";
 import { Portal, RepoCardsSection } from "./components";
+import { useMatomoPageView } from "./hooks/useMatomoPageView";
 import logo from "./logo.svg";
 
 function App() {
@@ -16,18 +17,33 @@ function App() {
 
   const sections = [
     {
+      alert: {
+        heading: "Recent Studies",
+        text: "Results are expected to be stable, but may be updated if circumstances require it.",
+        variant: "info" //  'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light' | string
+      },
       repos: [],
       style: "success",
       title: "Recent studies",
       topic: "recent"
     },
     {
+      alert: {
+        heading: "Work in progress",
+        text: "Please don't cite or use these results.",
+        variant: "danger"
+      },
       repos: [],
       style: "",
       title: "Work in progress",
       topic: "WIP"
     },
     {
+      alert: {
+        heading: "An archived project",
+        text: "This project is complete, and the results have been archived.",
+        variant: "info"
+      },
       repos: [],
       style: "primary",
       title: "Archive",
@@ -37,16 +53,19 @@ function App() {
 
   const defaultSection = 1;
 
+  // assign each repository to its correct category (recent/WIP/archive)
   function categoriseRepos(repository) {
     let todo = true;
     for (let section of sections) {
       if (repository.topics.includes(section.topic)) {
         section.repos.push(repository);
+        repository.alert = section.alert;
         todo = false;
       }
     }
     if (todo) {
       sections[defaultSection].repos.push(repository);
+      repository.alert = sections[defaultSection].alert;
     }
   }
 
@@ -55,6 +74,7 @@ function App() {
     cache
   );
 
+  // having got all of our org's repositories, filter only those with our topic of interest
   const topicRepos = isReposLoading
     ? null
     : repositories.filter((repository) =>
@@ -62,8 +82,12 @@ function App() {
     );
 
   if (topicRepos) {
-    topicRepos.forEach(categoriseRepos);
+    topicRepos.forEach(categoriseRepos); 
   }
+  const activeSections = ["0", "1", "2"];
+
+  // track all updates to the page
+  useMatomoPageView();
 
   return (
     <Routes>
@@ -75,17 +99,22 @@ function App() {
               <Container fluid="xxl">
                 <a
                   className="App-link"
-                  href="https://www.marei.ie/energy-policy-modelling/"
+                  href="https://www.ucc.ie/energypolicy"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={logo} className="App-logo" alt="logo" />
-                  <p>Energy Policy and Modelling Group (EPMG)</p>
+                  <img src={logo} className="App-logo" alt="logo" /> 
+                  <p>
+                    Energy Policy &amp; Modelling Group
+                    of University College Cork
+                    <br />Results from the TIMES Ireland Model
+                  </p>
                 </a>
-                <Accordion flush className="w-100">
+                <Accordion alwaysOpen flush defaultActiveKey={activeSections} className="w-100">
                   {sections.map((section, idx) => (
                     <Accordion.Item
                       key={idx}
+                      eventKey={`${idx}`}
                       style={{ backgroundColor: "transparent" }}
                     >
                       <Accordion.Header>{section.title}</Accordion.Header>
@@ -113,6 +142,7 @@ function App() {
                 source={`${ghPages}`}
                 study={`${topicRepo.name}`}
                 cache={cache}
+                alert={topicRepo.alert}
               />
             }
           />

@@ -13,17 +13,15 @@ import {
 } from "../specs";
 
 const chartsPath = "results/*";
-const headerNavLinks = [{ to: "results", text: "Results" }];
-const headerNavBrand = { brand: "Energy Scenarios", to: "/" };
+const headerNavLinks = [
+  { to: "results", text: "Charts" },
+  { to: "about", text: "About this study" }
+];
+const headerNavBrand = { brand: "All studies", to: "/" };
 const periods = Array.from(Array(31), (e, i) => 2020 + i);
-const alert = {
-  heading: "Work in progress...",
-  text: "Please don't cite or use these results.",
-  variant: "danger"
-};
 
 function Portal(props) {
-  const { source, study, cache } = props;
+  const { source, study, cache, alert } = props;
 
   const [isRepoChartsInfoLoading, repoChartsInfo] = useFetch(
     `${source}/${study}/specs/chartsInfo.json`,
