@@ -37,3 +37,11 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### `npm run serve`
 
 Serves the built application
+
+## Developer team
+
+[Andrew ZP Smith](https://github.com/energynumbers) is the current lead dev. We take contributions from the whole UCC-EPMG team.
+
+### Alumni
+
+[Olexandr Balyk](https://github.com/olejandro) was the original conceiver, designer and developer of this software.
